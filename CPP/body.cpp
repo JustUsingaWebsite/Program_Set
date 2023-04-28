@@ -44,12 +44,12 @@ void MySort::collectValues(int a[]){
     for (int i = 0; i < 10; i++) {
         for (int j = 1; j < 10; j++) {
             if (bucket[i][j] != 0) {
-                cout << bucket[i][j] << " ";
+                //cout << bucket[i][j] << " ";
                 a[index++] = bucket[i][j];
             }
         }
     }
-    cout << endl;
+    //cout << endl;
    
 }
 
@@ -70,7 +70,6 @@ int digitcount = 0;
         digitcount++;
     }
     
-    cout << "max number: " << digitcount << endl;
     return digitcount;
 }
 
@@ -97,6 +96,8 @@ void MySort::sort(int a[]){
 
 }
 
+/*
+DELETE ALL THIS
 void move_down(int a[], int size){
     memmove(&a[2], &a[1], sizeof(int)*(size-1));
     a[1] = 0;
@@ -119,7 +120,7 @@ void compare(int a[]){
         a[3] = temp2;
     }
 }
-
+*/
 
 void MySort::distributeValues(int a[], int k){
 
@@ -127,9 +128,18 @@ void MySort::distributeValues(int a[], int k){
     divisor = pow(10, k); 
     columnNumber = 0;
     
-    for(int i=0; i<9; i++){
+    for(int i=0; i<SIZE; i++){
         rowNumber = (a[i] % divisor - a[i] % (divisor / 10)) / (divisor / 10);
 
+        bucket[rowNumber][0] +=1;
+        columnNumber = bucket[rowNumber][0];
+        bucket[rowNumber][columnNumber] = a[i];
+        printBucket();
+        continue;
+
+
+        /*
+        DELETE ALL THIS 
         
         if(bucket[rowNumber][columnNumber] != 0){
             //if the bucket has a value at the first place we move down one place to make space
@@ -147,15 +157,10 @@ void MySort::distributeValues(int a[], int k){
             
             bucket[rowNumber][columnNumber + 1] = a[i];
             bucket[rowNumber][0]++;
-        }
-        
-        
-        
-        
-        
-        
-        //cout << rowNumber << "[" << a[i] << "] \n";
+        } 
+        //cout << rowNumber << "[" << a[i] << "] \n";*/
     }
+    
 
  
 } /**/
