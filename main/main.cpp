@@ -21,6 +21,7 @@ int main()
         [][][]
     */
 
+   std::cout << endl;
     std::cout<<"Original array elements: \n";
 
     for(int i = 0; i < MySort::SIZE; i++)
