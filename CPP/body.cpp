@@ -8,7 +8,13 @@ using namespace std;
 void MySort::printBucket(){
    for (int i = 0; i < 10; i++)
     {
-        cout << bucket[i][0] << " " << bucket[i][1] << " " << bucket[i][2] << " " << bucket[i][3] << " " << bucket[i][4] << " -> bucket \n";
+        for (int j = 0; j < 10; j++)
+        {
+             
+          cout << bucket[i][j] << " "; 
+          if (j == 9){ cout << " -> bucket \n";}
+        }
+        
     }
     
     cout << "\n" << "-----------------------------------------------------------------------" << "\n";
